@@ -1,38 +1,33 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+void main() => runApp(const MaterialApp(home: Scaffold(body: Home())));
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class Home extends StatelessWidget {
+  const Home({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Welcome to Flutter',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
-      home: const HomePage(),
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Welcome to Flutter'),
-      ),
-      body: const Center(
-        child: Text(
-          'Hello World',
-          style: TextStyle(fontSize: 24),
-        ),
+    return Center(
+      child: Column( 
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container( 
+            color: Colors.blue.shade100,
+            padding: const EdgeInsets.all(10),
+            child: const Text('LDSW 3.4. Utilización de widgets'), // 3. Text
+          ),
+          const Row( 
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [Icon(Icons.check), Text(' Widget Row')],
+          ), 
+          Stack( 
+            alignment: Alignment.center,
+            children: [
+              Container(width: 100, height: 50, color: Colors.amber),
+              const Text('Texto en Stack'),
+            ],
+          ),
+        ],
       ),
     );
   }
